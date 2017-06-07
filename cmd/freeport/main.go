@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	freeport "github.com/phayes/freeport"
+	"github.com/gabstv/freeport"
 	"os"
 )
 
