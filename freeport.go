@@ -4,8 +4,8 @@ import (
 	"net"
 )
 
-// Ask the kernel for a free open port that is ready to use
-func GetPort() (int, error) {
+// Ask the kernel for a free open TCP port that is ready to use
+func GetPortTCP() (int, error) {
 	addr, err := net.ResolveTCPAddr("tcp", "localhost:0")
 	if err != nil {
 		return 0, err
@@ -17,4 +17,19 @@ func GetPort() (int, error) {
 	}
 	defer l.Close()
 	return l.Addr().(*net.TCPAddr).Port, nil
+}
+
+// Ask the kernel for a free open UDP port that is ready to use
+func GetPortUDP() (int, error) {
+	addr, err := net.ResolveUDPAddr("udp", "localhost:0")
+	if err != nil {
+		return 0, err
+	}
+
+	l, err := net.ListenUDP("udp", addr)
+	if err != nil {
+		return 0, err
+	}
+	defer l.Close()
+	return l.LocalAddr().(*net.UDPAddr).Port, nil
 }
