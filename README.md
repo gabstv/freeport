@@ -25,14 +25,14 @@ import(
 )
 
 func main(){
-    tcpp, err := freeport.GetTCP()
+    tcpp, err := freeport.TCP()
     if err != nil {
         fmt.Println("Error getting a free TCP port:", err.Error())
         return
     }
     fmt.Println("TCP:", tcpp)
 
-    udpp, err := freeport.GetUDP()
+    udpp, err := freeport.UDP()
     if err != nil {
         fmt.Println("Error getting a free UDP port:", err.Error())
         return
