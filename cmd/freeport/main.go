@@ -18,9 +18,9 @@ func main() {
 	var port int
 	var err error
 	if istcp {
-		port, err = freeport.GetPortTCP()
+		port, err = freeport.TCP()
 	} else {
-		port, err = freeport.GetPortUDP()
+		port, err = freeport.UDP()
 	}
 	if err != nil {
 		fmt.Println(err.Error())
