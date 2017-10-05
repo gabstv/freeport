@@ -14,14 +14,37 @@ httpd -X -c "Listen $port" &
 curl localhost:$port
 ```
 
-#### Binary Downloads
- - Mac:   https://phayes.github.io/bin/current/freeport/mac/freeport.gz
- - Linux: https://phayes.github.io/bin/current/freeport/linux/freeport.gz
+#### Usage (Go)
+```go
+package main
+
+import(
+    "fmt"
+
+    "github.com/gabstv/freeport"
+)
+
+func main(){
+    tcpp, err := freeport.GetTCP()
+    if err != nil {
+        fmt.Println("Error getting a free TCP port:", err.Error())
+        return
+    }
+    fmt.Println("TCP:", tcpp)
+
+    udpp, err := freeport.GetUDP()
+    if err != nil {
+        fmt.Println("Error getting a free UDP port:", err.Error())
+        return
+    }
+    fmt.Println("UDP:", udpp)
+}
+```
 
 #### Building From Source
 ```bash
 sudo apt-get install golang                    # Download go. Alternativly build from source: https://golang.org/doc/install/source
 mkdir ~/.gopath && export GOPATH=~/.gopath     # Replace with desired GOPATH
 export PATH=$PATH:$GOPATH/bin                  # For convenience, add go's bin dir to your PATH
-go get github.com/phayes/freeport/cmd/freeport
+go get github.com/gabstv/freeport/cmd/freeport
 ```

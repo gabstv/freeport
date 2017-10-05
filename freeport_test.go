@@ -6,12 +6,12 @@ import (
 )
 
 func TestGetPort(t *testing.T) {
-	p, err := GetPortTCP()
+	p, err := TCP()
 	if err != nil {
 		t.Error(err)
 	}
 	log.Println("New TCP port:", p)
-	p, err = GetPortUDP()
+	p, err = UDP()
 	if err != nil {
 		t.Error(err)
 	}
