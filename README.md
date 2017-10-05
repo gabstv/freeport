@@ -1,7 +1,7 @@
 FreePort
 ========
 
-Get a free open TCP port that is ready to use
+Get a free open TCP (or UDP) port that is ready to use
 
 ```bash
 # Ask the kernel to give us an open port.
